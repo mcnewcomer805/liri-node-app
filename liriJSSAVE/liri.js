@@ -5,7 +5,6 @@ var Spotify = require('node-spotify-api');
 var omdb = require('omdb-api');
 var Twitter = require('twitter');
 var nodeArg = process.argv;
-var inquirer = require("inquirer");
 var text = process.argv[2];
 // var secondInput = process.argv[2];
 var secondInput = "";
@@ -170,45 +169,3 @@ var client = new Twitter(keys.twitter);
   // }
   // console.log(JSON.stringify(response, null, 2));
 // });
-function start() {
-
-  inquirer.prompt([
-    {
-      type: "list",
-      name: "nodeReviewQ1",
-      message: "What would you like to see, my tweets, a song, a movie, or what to do?",
-      choices: ["my-tweets", "spotify-this-song", "movie-this", "do-what-it-says"]
-    }
-  ]).then(function(response) {
-    console.log(response.client)
-    switch (response.nodeReviewQ1) {
-      case "my-tweets":
-      console.log("last 20 tweets");
-      client;
-      start();
-      break;
-
-      case "spotify-this-song":
-        // console.log("error", err)
-        // console.log("res", response)
-      console.log('I Want it That Way');
-      start();
-      break;
-   
-      case "movie-this":
-      console.log("Check out a movie")
-      start();
-      break;
- 
-      case "do-what-it-says":
-      console.log("Do it now!")
-      start();
-      break;
-    }
-
-  })
-
-}
-
-start();
-
